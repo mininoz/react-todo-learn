@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
+import TodoForm from './components/todo-form'
+import TodoList from './components/todo-list'
+
 class App extends Component {
   render() {
+    console.log(todos)
     return (
       <div>
-        <form>
-          <input type="text" />
-          <button type="submit">Add</button>
-        </form>
-
-        <h1> Todos </h1>
-        <ul>
-          <li> list </li>
-          <li> ddd </li>
-          <li> bbb </li>
-          <li> list </li>
-        </ul>
+        <TodoForm />
+        <TodoList />
       </div>
     )
   }
