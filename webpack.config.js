@@ -2,7 +2,7 @@
 var path = require('path')
 
 module.exports = {
-  devTool: 'source-map',
+
 
   // main javascript
   entry: [

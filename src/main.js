@@ -19,6 +19,19 @@ class App extends Component {
     }
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+  }
+
+  handleFormSubmit(text) {
+    let newTodo = {
+      id: Date.now(),
+      text: text,
+      done: false,
+    }
+
+    this.setState({
+      todos: this.state.todos.concat(newTodo)
+    })
   }
 
   handleDelete(index) {
@@ -32,7 +45,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <TodoForm />
+        <TodoForm
+          onFormSubmit={this.handleFormSubmit}
+        />
         <TodoList
           todos={this.state.todos}
           onDelete={this.handleDelete}
