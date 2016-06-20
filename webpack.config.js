@@ -1,4 +1,5 @@
 //webpack.config.js
+var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
@@ -6,7 +7,8 @@ module.exports = {
 
   // main javascript
   entry: [
-    'webpack-dev-server/client?http://localhost:8080/',
+    'webpack-dev-server/client?http://0.0.0.0:8080/',
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './src/main.js',
   ],
 
@@ -20,7 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loaders: ["react-hot", "babel-loader"]
       }
     ]
   },
@@ -28,5 +30,9 @@ module.exports = {
   devServer: {
     contentBase: './public',
   },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 
 }

@@ -16,7 +16,7 @@ export default class ToDoForm extends Component {
   render() {
     return (
       <div>
-        <h1> Todos </h1>
+        <h1> To Dos </h1>
         <ul>
           { this.renderTodo() }
         </ul>
