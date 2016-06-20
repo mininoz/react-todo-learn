@@ -6,7 +6,6 @@ import TodoList from './components/todo-list'
 
 class App extends Component {
   render() {
-    console.log(todos)
     return (
       <div>
         <TodoForm />
