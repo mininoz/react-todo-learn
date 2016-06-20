@@ -3,9 +3,12 @@ var path = require('path')
 
 module.exports = {
   devTool: 'source-map',
-  
+
   // main javascript
-  entry: './src/main.js',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080/',
+    './src/main.js',
+  ],
 
   output: {
     path: path.join(__dirname, 'public'),
