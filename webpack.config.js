@@ -30,9 +30,4 @@ module.exports = {
   devServer: {
     contentBase: './public',
   },
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
-
 }

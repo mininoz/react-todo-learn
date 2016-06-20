@@ -20,13 +20,15 @@ export default class ToDoForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit.bind(this)}>
+      <form onSubmit={this.onFormSubmit.bind(this)} className="form-inline">
         <input
           type="text"
           value={this.state.text}
+          className="form-control"
           onChange={this.onTextChange.bind(this)}
         />
-        <button type="submit">Add</button>
+        <button type="submit" hidden>Add</button>
+        <hr />
       </form>
     )
   }
