@@ -1,1 +1,14 @@
-alert('Hello World')
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        Hello my name is DIV 
+      </div>
+    )
+  }
+}
+
+render(<App />, document.getElementById('app'))
