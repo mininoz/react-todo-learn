@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 
 const styles = {
   todo: {
-    text: {
+    list: {
       cursor: 'pointer',
     },
     textDone: {
       textDecoration: 'line-through',
-      cursor: 'pointer',
     }
   }
 }
@@ -18,17 +17,19 @@ export default class ToDoForm extends Component {
   renderTodo() {
     return this.props.todos.map( (todo, index) => {
       return (
-        <li key={todo.id} className="list-group-item">
+        <li key={todo.id}
+          className="list-group-item"
+          onClick={this.props.markAsDone.bind(null, index)}
+          style={styles.todo.list} >
           <span
-            onClick={this.props.markAsDone.bind(null, index)}
-            style={ (todo.done)? styles.todo.textDone : styles.todo.text}
+            style={ (todo.done)? styles.todo.textDone : null}
           >
             {todo.text}
           </span>
           <button
             className="btn btn-danger btn-xs pull-right"
             onClick={this.props.onDelete.bind(null, index)}
-          > del </button>
+          > x </button>
         </li>
       )
     })

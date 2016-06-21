@@ -35,15 +35,17 @@ class App extends Component {
     })
   }
 
-  handleDelete(index) {
-    console.log('delete', index)
+  handleDelete(index, event) {
+    // console.log('delete', index)
+    event.stopPropagation()
     let newTodos = this.state.todos
     newTodos.splice(index,1)
 
     this.setState({ todos: newTodos })
   }
 
-  handleMarkAsDone(index) {
+  handleMarkAsDone(index, event) {
+    // console.log('done', index)
     let newTodos = this.state.todos.map((todo, i) => {
       if (index === i) {
          todo.done = !todo.done
