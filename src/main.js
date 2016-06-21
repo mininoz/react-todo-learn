@@ -20,6 +20,7 @@ class App extends Component {
 
     this.handleDelete = this.handleDelete.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
   }
 
   handleFormSubmit(text) {
@@ -42,6 +43,17 @@ class App extends Component {
     this.setState({ todos: newTodos })
   }
 
+  handleMarkAsDone(index) {
+    let newTodos = this.state.todos.map((todo, i) => {
+      if (index === i) {
+         todo.done = !todo.done
+         return todo
+      }
+      return todo
+    })
+    this.setState({ todos: newTodos})
+  }
+
   render() {
     return (
       <div>
@@ -51,6 +63,7 @@ class App extends Component {
         <TodoList
           todos={this.state.todos}
           onDelete={this.handleDelete}
+          markAsDone={this.handleMarkAsDone}
         />
       </div>
     )
